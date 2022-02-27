@@ -52,7 +52,7 @@ mongoose
 // This is a GET route
 server.get('/',
     function(req, res) {
-        res.send("Mission Accomplished!");
+        res.send("Mission Accomplished 2!");
     }
 );
 
