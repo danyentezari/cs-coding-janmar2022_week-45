@@ -1,6 +1,9 @@
 // Import the express function
 const express = require('express');
 
+// Import and run dotenv
+require('dotenv').config();
+
 // Import body-parser to read POST request
 const bodyParser = require('body-parser');
 
@@ -26,7 +29,7 @@ server.use(cors());
 
 
 // Connect to MongoDB
-const connectionString = "";
+const connectionString = process.env.MONGODB_CONNECTION_STRING;
 
 const connectionConfig = {
     'useNewUrlParser': true,
@@ -63,8 +66,8 @@ server.use(
 );
 
 server.listen(
-    3001,
+    process.env.PORT,
     function() {
-        console.log("Server is running on http://localhost:3001")
+        console.log(`Server is running on http://localhost:${process.env.PORT}`)
     }
 );
