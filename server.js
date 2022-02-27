@@ -10,6 +10,7 @@ const cors = require('cors');
 // Import mongoose to connect to MongoDB
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/user-routes.js');
+const productRoutes = require('./routes/product-routes.js');
 
 // Create server object by calling express
 const server = express();
@@ -57,6 +58,9 @@ server.use(
     '/user', userRoutes
 );
 
+server.use(
+    '/product', productRoutes
+);
 
 server.listen(
     3001,

@@ -1,3 +1,6 @@
+// Reference:
+// For mongoose methods, see
+// https://mongoosejs.com/docs/api/model.html
 const express = require('express');
 const router = express.Router();
 const UserModel = require('../models/UserModel.js');
@@ -20,14 +23,24 @@ router.post('/register',               // http://localhost:3001/user/
         .create(document)
         // If successful
         .then(
-            function() {
-                res.send("Done!");
+            function(dbDocument) {
+                res.json(
+                    {
+                        document: dbDocument,
+                        message: "User created"
+                    }
+                );
             }
         )
         // Otherwise
         .catch(
             function(dbError) {
-                console.log('DB user create error', dbError)
+                console.log('DB user create error', dbError);
+                res.json(
+                    {
+                        message: "User create error"
+                    }
+                );
             }
         );        
     }
