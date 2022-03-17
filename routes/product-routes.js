@@ -34,7 +34,7 @@ router.post('/create',                      // http://www.benjamin.com/products/
                     }
                 );
             }
-        )
+        );
     }
 );
 
